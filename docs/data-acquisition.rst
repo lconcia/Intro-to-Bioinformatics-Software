@@ -1,10 +1,10 @@
 .. _data_acquisition:
 
-Data acquisition: SRA Toolkit
+Data acquisition: SRA Tools
 =============================
 
 This section covers downloading public sequencing data using the **SRA
-(Sequence Read Archive) Toolkit** on an HPC cluster, so admins and users can
+(Sequence Read Archive) Tools** on an HPC cluster, so admins and users can
 reliably stage datasets for genomics and RNA-seq workflows.
 
 .. figure:: ./images/sra-toolkit.png
@@ -38,14 +38,14 @@ source when users need to:
 * **Train or demo** tools (e.g. BWA-MEM, RNA-seq pipelines) without requiring
   local, sensitive data.
 
-Supporting reliable, efficient downloads from the SRA—via the SRA Toolkit
+Supporting reliable, efficient downloads from the SRA—via the SRA Tools
 described below—is therefore a common requirement for clusters that serve
 bioinformatics users.
 
-The SRA Toolkit
+The SRA Tools
 ---------------
 
-The **SRA Toolkit** is NCBI's set of command-line tools for downloading and
+The **SRA Tool** is NCBI's set of command-line tools for downloading and
 converting data from the SRA. Two commands cover most use cases:
 
 * **prefetch** — Downloads an SRA run (e.g. ``SRR12345678``) in NCBI's native
@@ -72,7 +72,7 @@ Why this matters for HPC admins
   high write throughput and creates temporary working files that can be as large as
   (or larger than) the final FASTQ. Have users run fasterq-dump from **local scratch** so
   temp files do not fill shared storage.
-* **Cache and defaults**: If the SRA Toolkit cache location is not set, prefetch may
+* **Cache and defaults**: If the SRA Tools cache location is not set, prefetch may
   write to the user's home directory or current working directory, which can quickly
   fill quota. Advise users to pass an explicit output path (e.g. ``prefetch -o
   $SCRATCH/sra_cache SRR...``) or configure defaults with ``vdb-config`` so the cache
@@ -81,7 +81,7 @@ Why this matters for HPC admins
 Running on TACC systems with Apptainer and Biocontainers
 ---------------------------------------------------------
 
-On TACC systems, SRA Toolkit is available via the **Biocontainers** module,
+On TACC systems, SRA Tools is available via the **Biocontainers** module,
 which provides versioned container images that run under **Apptainer**.
 First, load the required modules, then invoke the tools inside the
 container.
@@ -97,7 +97,7 @@ so you have enough space.
 **1. Start an interactive session.** Stampede3 example: ``idev -p skx -m 30`` for 30 minutes
 on the skx partition.
 
-**2. Load modules.** The Biocontainers stack provides versioned SRA Toolkit
+**2. Load modules.** The Biocontainers stack provides versioned SRA Tools
 images. List and load a version:
 
 .. code-block:: bash
@@ -268,7 +268,7 @@ the node without oversubscribing its resources.
 Additional resources
 --------------------
 
-* **NCBI SRA**: `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>`_
-* **SRA Toolkit**: `SRA Toolkit documentation <https://github.com/ncbi/sra-tools/wiki>`_
-* **prefetch**: `prefetch documentation <https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump>`_
-* **TACC Stampede3**: `Stampede3 User Guide <https://docs.tacc.utexas.edu/hpc/stampede3/>`_
+* NCBI SRA: `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>`_
+* SRA Tools: `SRA Tools documentation <https://github.com/ncbi/sra-tools/wiki>`_
+* prefetch & fasterq-dump: `documentation <https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump>`_
+* TACC Stampede3: `Stampede3 User Guide <https://docs.tacc.utexas.edu/hpc/stampede3/>`_
