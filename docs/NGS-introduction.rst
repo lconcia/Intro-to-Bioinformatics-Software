@@ -39,12 +39,11 @@ The most common applications are:
 NGS data analysis pipeline 
 ----------------------------------
 
-NGS data are analyzed through a series of computational steps that convert raw sequence reads into biologically meaningful results. 
+NGS data are analyzed through a series of computational steps to extract meaningful biological insights from millions to billions of raw sequence reads.
 The exact workflow depends on the experiment (e.g., whole-genome sequencing, RNA-seq), but the core steps are similar:
 
 * **Quality control (QC)**
-Raw reads (often in FASTQ format) are checked for sequencing quality, adapter contamination, and biases. 
-Low-quality bases or adapters are trimmed.
+Raw reads (in FASTQ format) are checked for sequencing quality, adapter contamination, and biases. Low-quality bases are trimmed.
 
 * **Adapter trimming**
 Raw sequence reads contain synthetic oligonucleotides introduced by the library preparation. 
@@ -54,13 +53,12 @@ These nucleotides do not belong to the biological sample and need to be removed 
 Reads are aligned to a reference genome (e.g., the human genome) or transcriptome using algorithms such as BWA, bowtie2, or STAR.
 
 * **Post-processing**
-The output of the alignment need to be filtered, sorted and indexed for downstream analysis. 
-This includes sorting, removing duplicates, recalibrating quality scores, and indexing alignment files (BAM/CRAM format).
+The output of the alignment (BAM/CRAM files) need to be prepared for downstream analyses by sorting, indexing, filtering and removing duplicate reads.
 
 * **Downstream analysis**
-The following step depend on the type the experiment and are performed with various tools: bedtools, deeptools, HTseq, etc...
+Additional steps depend on the type the experiment and can be performed with various tools: bedtools, deeptools, HTseq, etc...
 Often these tools cannot run with multi-threading and benefit from the parallelization with SLURM.
 
-Overall, NGS analysis combines bioinformatics algorithms, statistical modeling, and biological interpretation to extract meaningful insights from millions to billions of sequence reads.
+Overall, NGS analysis combines bioinformatics algorithms, statistical modeling, and biological interpretation to
 
 
