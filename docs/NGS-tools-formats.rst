@@ -41,6 +41,3 @@ For single-threading tools, multiple parallel processes can be launched with PyL
 
 Examples
 ==================  
-
-bowtie2.Bioskryb.7Oct2025.array.slurm
-
